@@ -24,7 +24,7 @@ module Signet #:nodoc:
     d_qs = /"(?:#{d_qdtext}|#{d_quoted_pair})*"/
     # Production rules that allow for more liberal parsing, i.e. single quotes
     s_qdtext = /[\s\x21-\x26\x28-\x5B\x5D-\x7E\x80-\xFF]/n
-    s_quoted_pair = /\\[\s\x21-\x7E\x80-\xFF]/
+    s_quoted_pair = /\\[\s\x21-\x7E\x80-\xFF]/n
     s_qs = /'(?:#{s_qdtext}|#{s_quoted_pair})*'/
     # Combine the above production rules to find valid auth-param pairs.
     auth_param = /((?:#{token})\s*=\s*(?:#{d_qs}|#{s_qs}|#{token}))/
